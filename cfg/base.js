@@ -1,6 +1,8 @@
 'use strict';
 let path = require('path');
 let defaultSettings = require('./defaults');
+var precss = require('precss');
+var autoprefixer = require('autoprefixer');
 
 // Additional npm or bower modules to include in builds
 // Add all foreign plugins you may need into this array
@@ -40,11 +42,7 @@ module.exports = {
   },
   module: {
     postcss: function(){
-      return [
-        require('autoprefixer')({
-          browsers: ['last 2 versions', 'ie >= 8']
-        })
-      ];
+      return [precss, autoprefixer];
     }
   }
 };
