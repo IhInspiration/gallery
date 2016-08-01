@@ -1,0 +1,49 @@
+目录结构
+
+src 源代码
+test 测试代码
+editorconfig 统一不同编辑器编码风格 配置文件
+eslintrc 代码风格检测工具 默认包含jshintrc中风格
+yo-c.json yeoman配置文件
+karma测试框架文件
+web.config.js开发环境配置文件
+
+react developer tools
+*会注册一个全局变量__REACT_DEVTOOLS_GLOBAL_HOOK__
+
+
+
+wampserver
+git
+ipolicy项目地址：
+
+
+
+Usage
+
+The following commands are available in your project:
+
+# Start for development
+    npm start # or
+    npm run serve
+
+# Start the dev-server with the dist version
+    npm run serve:dist
+
+# Just build the dist version and copy static files
+    npm run dist
+
+# Run unit tests
+    npm test
+
+# Auto-run unit tests on file changes
+    npm run test:watch
+
+# Lint all files in src (also automatically done AFTER tests are run)
+    npm run lint
+
+# Clean up the dist directory
+    npm run clean
+
+# Just copy the static assets
+    npm run copy
