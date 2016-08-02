@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3dc76854-a0fb-4d48-84cd-e6a45c2f0bc6" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/学习笔记.txt" afterPath="$PROJECT_DIR$/学习笔记.txt" />
-    </list>
+    <list default="true" id="3dc76854-a0fb-4d48-84cd-e6a45c2f0bc6" name="Default" comment="" />
     <ignored path="gallery.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
