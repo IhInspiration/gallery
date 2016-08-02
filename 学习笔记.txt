@@ -48,4 +48,4 @@ The following commands are available in your project:
 # Just copy the static assets
     npm run copy
 
-yes1
+yes3
