@@ -11,13 +11,9 @@ web.config.js开发环境配置文件
 react developer tools
 *会注册一个全局变量__REACT_DEVTOOLS_GLOBAL_HOOK__
 
-
-
 wampserver
 git
 ipolicy项目地址：
-
-
 
 Usage
 
@@ -47,3 +43,6 @@ The following commands are available in your project:
 
 # Just copy the static assets
     npm run copy
+
+
+注意：新版本的react需要引入react-dom用来获取dom
