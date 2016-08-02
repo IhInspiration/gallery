@@ -87,6 +87,20 @@ function get30DegRandom(){
   return (Math.random() > 0.5 ? '' : '-') + Math.ceil(Math.random() * 30);
 }
 
+//控制组件
+var ControllerUnit = React.createClass({
+  handleClick: function(e){
+
+    e.preventDefault();
+    e.stopPropagation();
+  },
+  render: function(){
+    return(
+      <span className="controller-unit" onClick={this.handleClick}></span>
+    );
+  }
+});
+
 var GalleryComponent = React.createClass({
     Constant:{
       centerPos: {
@@ -281,7 +295,12 @@ var GalleryComponent = React.createClass({
         imgFigures.push(<ImgFigure data={value} key={index} ref={'imgFigure' + index}
         arrange={this.state.imgsArrangeArr[index]} inverse={this.inverse(index)}
         center={this.center(index)}/>);
+
+        controllerUnits.push(<ControllerUnit />);
+
       }.bind(this));
+
+
 
       return (
         <section className="stage" ref="stage">
