@@ -51,15 +51,15 @@ var ImgFigure = React.createClass({
 
     //如果图片的旋转角度有值并且不为0，添加旋转角度
     if(this.props.arrange.rotate){
-      ['-moz-', '-ms-', '-webkit-', ''].forEach(function(value){
-        styleObj[value + 'transform'] = 'rotate(' + this.props.arrange.rotate + 'deg)';
+      ['MozTransform', 'msTransform', 'WebkitTransform', 'transform'].forEach(function(value){
+        styleObj[value] = 'rotate(' + this.props.arrange.rotate + 'deg)';
       }.bind(this));
 
       //styleObj['transform'] = 'rotate(' + this.props.arrange.rotate + 'deg)';
     }
 
-    var imgFigureClassName = "img-figure";
-        imgFigureClassName += this.props.arrange.isInverse ? " is-inverse" : "";
+    var imgFigureClassName = 'img-figure';
+        imgFigureClassName += this.props.arrange.isInverse ? ' is-inverse' : '';
 
     return(
       <figure className={imgFigureClassName} style={styleObj} onClick={this.handleClick}>
@@ -91,12 +91,28 @@ function get30DegRandom(){
 var ControllerUnit = React.createClass({
   handleClick: function(e){
 
+    //如果点击的当前正在选中态的按钮，则翻转图片，否则将图片居中
+    if(this.props.arrange.isCenter){
+      this.props.inverse();
+    }else{
+      this.props.center();
+    }
     e.preventDefault();
     e.stopPropagation();
   },
   render: function(){
+    var controllerUnitClassName = 'controller-unit';
+
+    //按钮居中态和翻转态
+    if(this.props.arrange.isCenter){
+      controllerUnitClassName += ' is-center';
+      if(this.props.arrange.isInverse){
+        controllerUnitClassName += ' is-inverse';
+      }
+    }
+
     return(
-      <span className="controller-unit" onClick={this.handleClick}></span>
+      <span className={controllerUnitClassName} onClick={this.handleClick}></span>
     );
   }
 });
@@ -152,7 +168,7 @@ var GalleryComponent = React.createClass({
           vPosRangeX = vPosRange.x,
 
           imgsArrangeTopArr = [],
-          topImgNum = Math.ceil(Math.random() * 2),
+          topImgNum = Math.floor(Math.random() * 2),
           topImgSpliceIndex = 0,  //标记布局在上面图片是从哪块取出
           imgsArrangeCenterArr = imgsArrangeArr.splice(centerIndex, 1);
 
@@ -283,8 +299,8 @@ var GalleryComponent = React.createClass({
         if(!this.state.imgsArrangeArr[index]){
           this.state.imgsArrangeArr[index] = {
             pos: {
-              left: "0",
-              top: "0"
+              left: '0',
+              top: '0'
             },
             rotate: 0,
             isInverse: false,
@@ -296,7 +312,7 @@ var GalleryComponent = React.createClass({
         arrange={this.state.imgsArrangeArr[index]} inverse={this.inverse(index)}
         center={this.center(index)}/>);
 
-        controllerUnits.push(<ControllerUnit />);
+        controllerUnits.push(<ControllerUnit  key={index} arrange={this.state.imgsArrangeArr[index]} inverse={this.inverse(index)} center={this.center(index)}/>);
 
       }.bind(this));
 
