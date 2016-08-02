@@ -44,7 +44,6 @@ The following commands are available in your project:
 # Just copy the static assets
     npm run copy
 
-
 注意：新版本的react需要引入react-dom用来获取dom
 
 test1
