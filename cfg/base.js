@@ -1,8 +1,8 @@
 'use strict';
 let path = require('path');
+let precss = require('precss');
+let autoprefixer = require('autoprefixer');
 let defaultSettings = require('./defaults');
-var precss = require('precss');
-var autoprefixer = require('autoprefixer');
 
 // Additional npm or bower modules to include in builds
 // Add all foreign plugins you may need into this array
@@ -40,9 +40,8 @@ module.exports = {
       config: `${defaultSettings.srcPath}/config/` + process.env.REACT_WEBPACK_ENV
     }
   },
-  module: {
-    postcss: function(){
-      return [precss, autoprefixer];
-    }
+  module: defaultSettings.getDefaultModules,
+  postcss: function(){
+    return [precss, autoprefixer({ browsers: ['Firefox >= 20', 'Safari >= 5'] })];
   }
 };
