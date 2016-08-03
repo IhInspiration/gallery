@@ -4,7 +4,6 @@ logs
 
 # Runtime data
 pids
-/.idea
 *.pid
 *.seed
 
